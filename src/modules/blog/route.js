@@ -9,7 +9,7 @@ const deleteBlogs = require("../blog/controller/deleteController")
 router.post("/create", authenticate, blogController.createBlog)
 router.get("/get_all", authenticate, blogController.get_all)
 router.patch("/updateBlogs/:id", authenticate, updateBlogs.updateBlogs)
-router.delete("/deleteBlogs/:id", deleteBlogs.deleteBlogs)
-router.get("/get_all_by_id/:id", blogController.get_all_by_id)
+router.delete("/deleteBlogs/:id", authenticate,deleteBlogs.deleteBlogs)
+router.get("/get_all_by_id/:id", authenticate,blogController.get_all_by_id)
 
 module.exports = router;
